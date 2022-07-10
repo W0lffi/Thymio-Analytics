@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Overview about local datas from thymios.">
+      <meta name="keywords" content="HTML, CSS, JavaScript">
+      <meta name="author" content="Sven Wolff">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="/favicon.ico">
+      <link rel="stylesheet" type="text/css" href="/format.css">
+      <link rel="stylesheet" type="text/css" href="/graphs.css">
+      <link rel="stylesheet" type="text/css" href="/toggleButton.css">
+      <script language="javascript" type="text/javascript" src="/d3.v4.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/colorbrewer.v1.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/colorLegend.js"></script>
+      <script language="javascript" type="text/javascript" src="/preparation.js"></script>
+      <script language="javascript" type="text/javascript" src="/getter.js"></script>
+      <script language="javascript" type="text/javascript" src="/download.js"></script>
+      <script language="javascript" type="text/javascript" src="/fetchData.js"></script>
+      <script language="javascript" type="text/javascript" src="/visualize.js" defer></script>
+      <title>Thymio Analytics Overview</title>
+   </head>
+   <body onload="initUpload()">
+      <div class="wrapper">
+         <div class="topbar" style="background-image: url('topbar_banner_online.png');">
+            <div>
+               <a href="/">
+                  <img src="/thymio_banner.png">
+               </a>
+            </div>
+            <div class="change">
+               <a href="/offline-analysis">
+                  <img src="topbar_change_online.png">
+               </a>
+            </div>
+         </div>
+         <div class="sidebar" style="background-image: url('sidebar_banner_online.png');">
+            <div class="detailLink">
+               <a href="/bee?bee=1">Bee01</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=2">Bee02</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=3">Bee03</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=4">Bee04</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=5">Bee05</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=6">Bee06</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=7">Bee07</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=8">Bee08</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=9">Bee09</a>
+            </div>
+            <div class="detailLink">
+               <a href="/bee?bee=10">Bee10</a>
+            </div>
+         </div>
+         <div class="graphBoxes">   
+            <div class="box1">
+               <svg id="iMin" width="700" height="300"></svg>
+            </div>
+            <div class="box2">
+               <svg id="iMax" width="700" height="300"></svg>
+            </div>
+            <div class="box3">
+               <svg id="robNbr" width="700" height="300"></svg>
+            </div>
+            <div class="box4">
+               <svg id="arnSize" width="700" height="300"></svg>
+            </div>
+         </div>
+         <div class="controlbar">
+            <div class="controlSection">
+               <form method="post" enctype="multipart/form-data">
+                  <p>Upload</p>
+                  <input type="file" id="upload" name="uploadFile" accept=".json" onchange="saveDataFromFile()" hidden/>
+                  <label class="uploadButton" for="upload">Choose file</label>
+                  <input type="submit" value="Upload" name="submit">
+               </form>
+               <hr>
+            </div>
+            <div class="controlSection">
+               <p>Download</p>
+               <input type="button" value="Download as json" onclick="startDownload()">
+               <hr>
+            </div>
+            <div class="controls">
+               <h2>Controls</h2>
+               <p>Toggle lines on/off</p>
+               <span>Click on the names in the legend.</span>
+               <p>Receive data</p>
+               <label class="switch">
+                  <input type="checkbox" onchange="toggleReceive()" checked>
+                  <span class="slider round"></span>
+               </label>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

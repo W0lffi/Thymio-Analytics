@@ -1,0 +1,24 @@
+.title {
+  font-family: Lato;
+  font-size: 20px;
+  text-anchor: middle;
+ }
+
+.axis-label {
+  font-family: Lato;
+  text-anchor: middle;
+  font-size: 13px;
+}
+
+.line-path {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  mix-blend-mode: multiply;
+}
+
+.tick text {
+  font-size: 10px;
+  fill: #635F5D;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "visualisation",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.iti.uni-luebeck.de/ltbeeclust/beeclust_ba_sven_wolff.git"
+},
+  "main": "app.js",
+  "dependencies": {
+    "express": "4.17.1",
+    "ip": "1.1.5",
+    "multer": "1.4.4",
+    "zeromq":"6.0.0-beta.6"
+  },
+  "keywords": [Thymio, Analytics],
+  "author": "Sven Wolff <sven.wolff@student.uni-luebeck.de>",
+  "license": "MIT"
+}

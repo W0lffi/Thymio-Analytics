@@ -1,0 +1,35 @@
+This file shows the format of the json files.
+Éach robot has its own json file.
+
+{                                                       # Used for Thymio Analytics
+  'sendState' : 'reg'                                   # The sendState is "reg" in beginning and determine the server to register this bee after it this value is on "w"
+  'name' : 'beeXX'														          # The name of the bee if the number is smaller than 10 it have a leading zero XX could be 04 or 10 maybe
+  'clustering' : [clusterDuration, timeStamp],					# The time how long the robot will clustering followed by the timestamp when he started
+  'valsLocal' : {
+    'iMin' : [[iMin, timestamp], [...], ...],						# A list of lists of the local iMin datas with timestamp
+    'iMax' : [[iMax, timestamp], [...], ...],						# A list of lists of the local iMax datas with timestamp
+    'arnSize' : [[arnSize, timestamp], [...], ...],     # A list of lists of the local robNbr datas with timestamp
+    'robNbr' : [[robNbr, timestamp], [...], ...],				# A list of lists of the local arnSize datas with timestamp
+  },
+  'faultDetection' : {                                  # Used for testing/plotting
+    'faultDetectionMethod' : 'Nothing',
+    'localValues' : {
+      'collectedValues' : [[[iMin, iMax, 1, 1], timestamp], [[...], ...]],  # The self measured data with a timestamp
+      'trustedSets' : {
+        'iMin' : [[1], [2, 4, 6], [...]],                                   # A list of lists with the indices of trusted iMin datasets
+        'iMax' : [[0], [1, 3, 5], [...]],                                   # A list of lists with the indices of trusted iMax datasets
+        'rob_arn' : [[], [1, 2, 3, 4, 5, 6], [...]]                         # Same for robNbr and arenaSize datasets. A fusion of the both lists before.
+      }
+    },
+    'receivedValues' : {
+      'rawCollectedValues' : [[iMin, iMax, robNbr, arnSize], [...], ...],       # The received data
+      'normCollectedValues' : [[iMin, iMax, robNbr, arnSize], [...], ...],      # The received data normalized from 0 to x
+      'timestamps' : [[4.53], [4.53, 13.58], [...], ...],                       # The timestamps to the received datasets 
+      'trustedSets' : {
+        'iMin' : [[1], [2, 4, 6], [...]],                                       # A list of lists with the indices of trusted iMin datasets
+        'iMax' : [[0], [1, 3, 5], [...]],                                       # A list of lists with the indices of trusted iMax datasets
+        'rob_arn' : [[], [1, 2, 3, 4, 5, 6], [...]]                             # Same for robNbr and arenaSize datasets. A fusion of the both lists before.
+      }
+    }
+  }
+}
