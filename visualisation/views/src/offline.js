@@ -8,6 +8,13 @@ const COLOR_DOMAIN = ['bee01', 'bee02', 'bee03', 'bee04', 'bee05', 'bee06', 'bee
 const COLOR_SCALE = d3.scaleOrdinal().domain(COLOR_DOMAIN).range(COLOR_RANGE);
 const targets = ['iMin', 'iMax', 'robNbr', 'arnSize'];
 
+const titleDict = {
+    "#iMin" : "Minimum measured light intensity",
+    "#iMax" : "Maximum measured light intensity",
+    "#robNbr" : "Estimated number of robots in arena",
+    "#arnSize" : "Estimated arena Size"
+}
+
 var iMin = [], iMax = [], robNbr = [], arnSize = []; 
 var reply;
 
@@ -113,7 +120,7 @@ function drawPlots(data, dataId) {
     .attr('class', 'title')
     .attr('x', INNER_WIDTH / 2)
     .attr('y', -5)
-    .text(dataId.substring(1));
+    .text(titleDict[dataId]);
   
   d3.select(dataId).append('g')
     .attr('transform', `translate(635, 45)`)
