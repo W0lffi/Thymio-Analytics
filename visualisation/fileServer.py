@@ -216,5 +216,11 @@ def setKillServer(loc_killServer: bool):
 if __name__ == "__main__":
 	jsonReader = Thread(target=readThread)
 	jsonReader.daemon = True
-	jsonReader.start()
-	writeThread()
+	try:
+		jsonReader.start()
+		writeThread()
+	except KeyboardInterrupt:
+		print("\nServer canceled by user")
+	except Exception as e:
+		print(e)
+	
