@@ -29,6 +29,13 @@ const lineGenerator = d3.line()
     .y(d => Y_SCALE(d.value))
     .curve(d3.curveStep);
 
+const titleDict = {
+    "#iMin" : "Minimum measured light intensity",
+    "#iMax" : "Maximum measured light intensity",
+    "#robNbr" : "Estimated number of robots in arena",
+    "#arnSize" : "Estimated arena Size"
+}
+
 /**
  * Initializes the plot by the given data.
  * data - The data. A list of objects.
@@ -104,7 +111,7 @@ function initPlot(data, dataId) {
     .attr('class', 'title')
     .attr('x', INNER_WIDTH / 2)
     .attr('y', -5)
-    .text(dataId.substring(1));
+    .text(titleDict[dataId]);
   
   d3.select(dataId).append('g')
     .attr('transform', `translate(635, 45)`)
