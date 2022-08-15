@@ -1,5 +1,6 @@
 #! /bin/env python3
 
+from pathlib import Path
 from os import path, pardir
 from zmq import Context, REP
 from json import load, dumps, dump
@@ -29,13 +30,13 @@ author: Sven Wolff
 class BeeJSON:
 
 	__FILE_EXTENSION = ".json"
-	__DATA_DIR = path.join(path.join(path.dirname(path.abspath(__file__)), pardir), "data")
+	__DATA_DIR = Path(__file__).parent / "data"
 	__indexListDict = { 0: "iMin", 1: "iMax", 2: "robNbr", 3: "arnSize" }
 	__maxLocals = [0, 0, 0 ,0] 																				## stores the size of the biggest lists which one of the bee's has; used to ensure that 
 																																		## every iMin, iMax, ... list has the same length
 	def __init__(self, name: str):
 		self.__name = name
-		self.__filePath = path.join(self.__DATA_DIR, name) + self.__FILE_EXTENSION
+		self.__filePath = self.__DATA_DIR / f"name{self.__FILE_EXTENSION}"
 		self.__jsonMutex = BoundedSemaphore()
 		self.__lastIndices = {}
 
